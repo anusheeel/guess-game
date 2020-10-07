@@ -1,17 +1,23 @@
 correct = "guitar"
 user = ""
-a = 0
-d = 3
-c = 3
-out_of_guesses = False
+guess_count = 0
+coin_remaining = 3
+guess_limit = 3
+not_enough_coin = False
+print("Welcome!! This is a boring guessing game")
 
-while user != correct and not(out_of_guesses):
-    if a < c:
+while user != correct and not(not_enough_coin):
+    
+    if guess_count < guess_limit and coin_remaining != guess_count:
+        print( "You have", coin_remaining , "coins in hand")
+        coin_remaining -= 1
         user = input ("Enter your guess: ")
-        a = a + 1
+        guess_count += 1
+        
     else:
-        out_of_guesses = True
+        print("Out of Coins")
+        not_enough_coin = True
 if user == correct:    
-    print("You Win")
+    print("Congratulations !! You Win")
 else:
-    print("you lose")
+    print("You Lose")
